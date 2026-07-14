@@ -1,0 +1,28 @@
+# Dependências
+node_modules/
+dashboard/node_modules/
+
+# Build output
+dist/
+dashboard/dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Arquivos locais do agente
+signals.json
+
+# Coverage
+coverage/

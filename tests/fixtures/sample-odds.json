@@ -1,0 +1,73 @@
+[
+  {
+    "FixtureId": 18241006,
+    "SuperOddsType": "OVERUNDER_PARTICIPANT_GOALS",
+    "MarketPeriod": null,
+    "PriceNames": ["over", "under"],
+    "Prices": [2156, 1968],
+    "Ts": 1783893434502,
+    "Bookmaker": "TxLINE",
+    "InRunning": false
+  },
+  {
+    "FixtureId": 18241006,
+    "SuperOddsType": "OVERUNDER_PARTICIPANT_GOALS",
+    "MarketPeriod": null,
+    "PriceNames": ["over", "under"],
+    "Prices": [2180, 1950],
+    "Ts": 1783893434600,
+    "Bookmaker": "TxLINE",
+    "InRunning": false
+  },
+  {
+    "FixtureId": 18241006,
+    "SuperOddsType": "OVERUNDER_PARTICIPANT_GOALS",
+    "MarketPeriod": null,
+    "PriceNames": ["over", "under"],
+    "Prices": [2200, 1940],
+    "Ts": 1783893434700,
+    "Bookmaker": "TxLINE",
+    "InRunning": false
+  },
+  {
+    "FixtureId": 18241006,
+    "SuperOddsType": "OVERUNDER_PARTICIPANT_GOALS",
+    "MarketPeriod": null,
+    "PriceNames": ["over", "under"],
+    "Prices": [2210, 1935],
+    "Ts": 1783893434800,
+    "Bookmaker": "TxLINE",
+    "InRunning": false
+  },
+  {
+    "FixtureId": 18241006,
+    "SuperOddsType": "OVERUNDER_PARTICIPANT_GOALS",
+    "MarketPeriod": null,
+    "PriceNames": ["over", "under"],
+    "Prices": [2220, 1930],
+    "Ts": 1783893434900,
+    "Bookmaker": "TxLINE",
+    "InRunning": false
+  },
+  {
+    "FixtureId": 18241006,
+    "SuperOddsType": "OVERUNDER_PARTICIPANT_GOALS",
+    "MarketPeriod": null,
+    "PriceNames": ["over", "under"],
+    "Prices": [2490, 1875],
+    "Ts": 1783893435000,
+    "Bookmaker": "TxLINE",
+    "InRunning": true,
+    "_note": "Sharp move on over: 2.490 vs ~2.19 avg (~15%+)"
+  },
+  {
+    "FixtureId": 18237038,
+    "SuperOddsType": "ASIANHANDICAP_PARTICIPANT_GOALS",
+    "MarketPeriod": "half=1",
+    "PriceNames": ["part1", "part2"],
+    "Prices": [2347, 1888],
+    "Ts": 1783893434524,
+    "Bookmaker": "TxLINE",
+    "InRunning": false
+  }
+]

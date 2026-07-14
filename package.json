@@ -1,0 +1,38 @@
+{
+  "name": "sharp-signal-agent",
+  "version": "1.0.0",
+  "description": "Autonomous Sharp Money Detector for TxLINE Hackathon",
+  "type": "module",
+  "scripts": {
+    "auth": "tsx src/auth.ts",
+    "start": "tsx src/index.ts",
+    "backtest": "tsx src/backtest-local.ts",
+    "find-odds": "tsx src/find-live-odds.ts",
+    "validate": "tsx src/validate-signal.ts",
+    "dashboard:install": "npm install --prefix dashboard",
+    "dashboard:dev": "npm run dev --prefix dashboard",
+    "dashboard:build": "npm run build --prefix dashboard",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana/spl-token": "^0.4.6",
+    "@solana/web3.js": "^1.91.8",
+    "axios": "^1.7.2",
+    "bs58": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "eventsource": "^4.1.0",
+    "tweetnacl": "^1.0.3",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "@types/ws": "^8.18.1",
+    "@vitest/coverage-v8": "^4.1.10",
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5",
+    "vitest": "^4.1.10"
+  }
+}
