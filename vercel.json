@@ -1,5 +1,5 @@
 {
-    "buildCommand": "cd dashboard && npm run build",
+    "buildCommand": "cd dashboard && npm install && npm run build",
     "outputDirectory": "dashboard/dist",
     "devCommand": "cd dashboard && npm run dev",
     "routes": [
