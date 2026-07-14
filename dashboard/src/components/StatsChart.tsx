@@ -24,15 +24,20 @@ export function StatsChart({ stats }: Props) {
   const timeline = stats.timeline.map((p, i) => ({
     i: i + 1,
     deviation: p.deviation,
-    label: new Date(p.t).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+    label: new Date(p.t).toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
   }));
 
   return (
     <div className="space-y-4">
       <div className="rounded-xl border border-white/10 bg-panel p-4">
-        <h3 className="mb-3 text-sm font-medium text-white/70">Sinais por mercado</h3>
+        <h3 className="mb-3 text-sm font-medium text-white/70">
+          Signals by market
+        </h3>
         {marketData.length === 0 ? (
-          <p className="py-8 text-center text-xs text-white/40">Sem dados ainda</p>
+          <p className="py-8 text-center text-xs text-white/40">No data yet</p>
         ) : (
           <div className="h-52">
             <ResponsiveContainer width="100%" height="100%">
@@ -65,9 +70,11 @@ export function StatsChart({ stats }: Props) {
       </div>
 
       <div className="rounded-xl border border-white/10 bg-panel p-4">
-        <h3 className="mb-3 text-sm font-medium text-white/70">Desvios ao longo do tempo</h3>
+        <h3 className="mb-3 text-sm font-medium text-white/70">
+          Deviation over time
+        </h3>
         {timeline.length === 0 ? (
-          <p className="py-8 text-center text-xs text-white/40">Sem dados ainda</p>
+          <p className="py-8 text-center text-xs text-white/40">No data yet</p>
         ) : (
           <div className="h-52">
             <ResponsiveContainer width="100%" height="100%">

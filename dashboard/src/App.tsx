@@ -1,9 +1,18 @@
 import { SignalsFeed } from "./components/SignalsFeed";
 import { StatsChart } from "./components/StatsChart";
 import { useSignals } from "./hooks/useSignals";
+import type { DataSource } from "./types";
 
 export default function App() {
-  const { signals, stats, live, error, shortWallet } = useSignals();
+  const {
+    signals,
+    stats,
+    live,
+    error,
+    shortWallet,
+    loading,
+    dataSource,
+  } = useSignals();
 
   return (
     <div className="min-h-screen bg-ink">
@@ -19,18 +28,7 @@ export default function App() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <span
-              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium ${
-                live
-                  ? "border-signal/30 bg-signal/10 text-signal"
-                  : "border-red-500/30 bg-red-500/10 text-red-400"
-              }`}
-            >
-              <span
-                className={`h-2 w-2 rounded-full ${live ? "bg-signal" : "bg-red-400"}`}
-              />
-              {live ? "LIVE" : "OFFLINE"}
-            </span>
+            <DataSourceBadge source={dataSource} live={live} />
             <span className="rounded-full border border-white/10 bg-panel px-3 py-1 font-mono text-xs text-white/70">
               {shortWallet}
             </span>
@@ -49,19 +47,30 @@ export default function App() {
       <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 lg:grid-cols-[1.1fr_0.9fr]">
         <section>
           <div className="mb-3 flex items-end justify-between">
-            <h2 className="text-sm font-medium text-white/80">Feed em tempo real</h2>
-            <span className="font-mono text-xs text-white/40">{signals.length} sinais</span>
+            <h2 className="text-sm font-medium text-white/80">
+              Signal feed
+            </h2>
+            <span className="font-mono text-xs text-white/40">
+              {signals.length} signals
+            </span>
           </div>
-          <SignalsFeed signals={signals} />
+          <SignalsFeed signals={signals} loading={loading} />
         </section>
 
         <section className="space-y-4">
           <div className="grid grid-cols-2 gap-3">
-            <Metric label="Total de sinais" value={String(stats.totalSignals)} />
-            <Metric label="Sinais hoje" value={String(stats.signalsToday)} />
-            <Metric label="Maior desvio" value={`${stats.maxDeviation}%`} accent />
+            <Metric label="Total signals" value={String(stats.totalSignals)} />
             <Metric
-              label="Fixtures monitorados"
+              label="Avg deviation"
+              value={`${stats.averageDeviation ?? "—"}%`}
+            />
+            <Metric
+              label="Max deviation"
+              value={`${stats.maxDeviation}%`}
+              accent
+            />
+            <Metric
+              label="Fixtures monitored"
               value={String(stats.fixturesMonitored)}
             />
           </div>
@@ -69,6 +78,39 @@ export default function App() {
         </section>
       </main>
     </div>
+  );
+}
+
+function DataSourceBadge({
+  source,
+  live,
+}: {
+  source: DataSource;
+  live: boolean;
+}) {
+  if (source === "live" && live) {
+    return (
+      <span className="inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-3 py-1 text-xs font-medium text-signal">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-signal" />
+        LIVE AGENT
+      </span>
+    );
+  }
+
+  if (source === "onchain") {
+    return (
+      <span className="inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-3 py-1 text-xs font-medium text-signal">
+        <span className="h-2 w-2 rounded-full bg-signal" />
+        LIVE ON-CHAIN
+      </span>
+    );
+  }
+
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-200">
+      <span className="h-2 w-2 rounded-full bg-amber-300" />
+      DEMO DATA
+    </span>
   );
 }
 

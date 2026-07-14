@@ -1,3 +1,5 @@
+export type DataSource = "live" | "onchain" | "demo";
+
 export interface StoredSignal {
   id: string;
   type: "SHARP_MOVEMENT";
@@ -11,6 +13,7 @@ export interface StoredSignal {
   teams?: string;
   txSignature?: string;
   explorerUrl?: string;
+  source?: DataSource;
 }
 
 export interface AgentStats {
@@ -24,4 +27,5 @@ export interface AgentStats {
   wallet: string | null;
   network: string;
   agentStatus: "live" | "offline";
+  averageDeviation?: number;
 }

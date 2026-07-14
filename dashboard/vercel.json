@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!demo-data\\.json).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
